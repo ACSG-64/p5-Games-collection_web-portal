@@ -1,0 +1,69 @@
+#main_section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form, .narrow {
+    display: block;
+    block-size: border-box;
+    width: 20%;
+    min-width: 250px;
+    padding: 30px 50px;
+    background-color: rgb(35, 37, 43);
+}
+
+.wider {
+    display: block;
+    block-size: border-box;
+    width: 40%;
+    min-width: 250px;
+    padding: 30px 50px;
+    background-color: rgb(35, 37, 43);
+}
+
+form > h2 {
+    text-align: center;
+}
+
+form input, select, textarea {
+    width: calc(100% - 8px);
+    margin-bottom: 8px;
+    padding: 6px 4px;
+    color: black;
+    font-size: 1rem;
+    border-style: none;
+    border-bottom-color: gray;
+    border-bottom-style: solid;
+    border-radius: 0;
+}
+
+form select, option {
+    width: 100%;
+    color: black;
+}
+
+form textarea {
+    resize: vertical;
+    min-height: 20vh;
+}
+
+form input[type="file"] {
+    color: white;
+    cursor: pointer;
+}
+
+form input[type="submit"] {
+    width: 100%;
+    padding: 12px 40px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: var(--yellow_button);
+    border-style: none;
+    cursor: pointer;
+}
+
+form #form_errors li {
+    list-style: none;
+    color: red;
+}

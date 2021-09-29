@@ -1,0 +1,58 @@
+{{#extend "baseLayout"}}
+    {{#content "styles"}}
+        <link rel="stylesheet" href="/stylesheets/form.css">
+    {{/content}}
+    {{#content "pageTitle"}}Auth{{/content}}
+    {{#content "mainContent"}}
+        <section id="main_section">
+            <form id="loginForm" action="/auth/login" method="post" style="display: block">
+                <h2>Login</h2>
+                <hr style="margin-bottom: 8px">
+                <label for="userName">User name:</label><br>
+                <input type="text" id="userName" name="userName" placeholder="jhonDoe24" minlength="3" maxlength="15"
+                       required><br>
+
+                <label for="passwd">Password:</label><br>
+                <input type="password" id="passwd" name="password" placeholder="********" minlength="8" maxlength="30"
+                       required><br>
+
+                <a id="registerFormChanger" href="#">Don't have an account? register here.</a>
+                <input type="submit" value="Login">
+            </form>
+            <form id="registerForm" action="/auth/register" method="post" style="display: none">
+                <h2>Register</h2>
+                <hr style="margin-bottom: 8px">
+                <label for="newUserName">User name:</label><br>
+                <input type="text" id="newUserName" name="userName" placeholder="jhonDoe24" minlength="3" maxlength="15"
+                       required><br>
+
+                <label for="name">Name(s):</label><br>
+                <input type="text" id="name" name="name" placeholder="John" maxlength="80" required><br>
+
+                <label for="lastName">Lastname(s):</label><br>
+                <input type="text" id="lastname" name="lastname" placeholder="Doe" maxlength="80" required><br>
+
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" name="password" placeholder="********" minlength="8" maxlength="30"
+                       required><br>
+
+                <label for="confPassword">Confirm password:</label><br>
+                <input type="password" id="confPassword" name="confPassword" placeholder="********"
+                       minlength="8"
+                       maxlength="30"
+                       required><br>
+
+                <label for="uolEmail">UoL e-mail:</label><br>
+                <input type="email" id="uolEmail" name="uolEmail" placeholder="jd1@student.london.ac.uk" required><br>
+                <ul id="form_errors"></ul>
+
+                <a id="loginFormChanger" href="#">Do you have an account? login here.</a>
+                <input type="submit" value="Register">
+            </form>
+        </section>
+    {{/content}}
+    {{#content "scripts"}}
+        <script src="/javascripts/formValidator.js"></script>
+    {{/content}}
+{{/extend}}
+

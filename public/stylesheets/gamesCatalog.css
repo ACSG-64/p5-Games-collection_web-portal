@@ -1,0 +1,89 @@
+#main_section {
+    padding: 0 5%;
+}
+
+#main_section > h1 {
+    font-size: 4rem;
+}
+
+
+#games_catalog {
+    position: relative;
+    display: grid;
+    grid-template-columns: 0.25fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    margin-top: 25px;
+
+}
+
+#games_catalog #filter_section {
+    border-right-color: white;
+    border-right-width: 1px;
+    border-right-style: solid;
+}
+
+#games_catalog #filter_section #filter_form > h3 {
+    font-size: 1.5rem;
+}
+
+#games_catalog #filter_section #filter_form .radio_option {
+    margin: 25px 0;
+}
+
+#games_catalog #filter_section #filter_form .radio_option input[type="radio"] {
+    opacity: 0;
+    width: 0;
+}
+
+#games_catalog #filter_section #filter_form .radio_option input[type="radio"] + *::before {
+    content: "";
+    display: inline-block;
+    vertical-align: bottom;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.3rem;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 0.1rem;
+    border-color: gray;
+}
+
+#games_catalog #filter_section #filter_form .radio_option input[type="radio"]:checked + *::before {
+    background: radial-gradient(#ffae00 0%, #ffae00 40%, transparent 50%, transparent);
+    border-color: #ffae00;
+}
+
+#games_catalog #filter_section #filter_form input[type="submit"] {
+    padding: 12px 40px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: var(--yellow_button);
+    border-style: none;
+    cursor: pointer;
+}
+
+#games_catalog #games_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media screen and (max-width: 800px) {
+    #games_catalog {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.2fr 1fr;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+    }
+
+    #games_catalog #filter_section {
+        padding-bottom: 5px;
+        border: none;
+        border-bottom-color: white;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+    }
+}

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/stylesheets/basic.css">
+    <link rel="stylesheet" href="/stylesheets/components/navigation.css">
+    {{#block "styles"}}{{/block}}
+
+    <!-- Primary Meta Tags -->
+    <title>{{#block "pageTitle"}}{{/block}} - p5 Games</title>
+    <meta name="title" content="p5 Games - Minigames collection">
+    <meta name="description" content="Collection of mini-games developed with the p5 graphics library.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://p5-games.acsg.repl.co/">
+    <meta property="og:title" content="p5 Games - Minigames collection">
+    <meta property="og:description" content="Collection of mini-games developed with the p5 graphics library.">
+    <meta property="og:image"
+          content="/page_cover">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://p5-games.acsg.repl.co/">
+    <meta property="twitter:title" content="p5 Games - Minigames collection">
+    <meta property="twitter:description" content="Collection of mini-games developed with the p5 graphics library.">
+    <meta property="twitter:image"
+          content="/page_cover">
+</head>
+<body>
+{{> navigation }}
+<section class="full_height_section">
+    {{#block "mainContent"}}{{/block}}
+</section>
+{{#block "scripts"}}{{/block}}
+{{> footer }}
+</body>
+</html>

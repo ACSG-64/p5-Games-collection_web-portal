@@ -1,0 +1,23 @@
+.notification_dialog {
+    display: block;
+    block-size: border-box;
+    font-weight: bold;
+    padding: 10px;
+    margin: 2%  15%;
+    border-style: solid;
+    border-radius: 8px;
+}
+
+.alert {
+    color: rgb(152,111,55);
+    background-color: rgb(248,243,214);
+}
+
+.error {
+    color: rgb(176,48,47);
+    background-color: rgb(235,200,196);
+}
+
+.notification_dialog > ul li{
+    margin-left: 18px;
+}

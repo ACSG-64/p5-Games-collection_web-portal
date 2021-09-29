@@ -1,0 +1,20 @@
+{{#extend "baseLayout"}}
+    {{#content "styles"}}
+        <link rel="stylesheet" href="/stylesheets/components/notification.css">
+    {{/content}}
+    {{#content "pageTitle"}}Games catalog{{/content}}
+    {{#content "mainContent"}}
+        <section>
+
+            <div class="notification_dialog {{#if isError}}error {{else}}alert{{/if}}">
+                <h3>{{#if isError}}ERROR{{else}}IMPORTANT{{/if}}</h3>
+                <hr>
+                <ul>
+                    {{#each messages}}
+                    <li>{{this.msg}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        </section>
+    {{/content}}
+{{/extend}}

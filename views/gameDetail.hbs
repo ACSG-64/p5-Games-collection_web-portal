@@ -1,0 +1,17 @@
+{{#extend "baseLayout"}}
+    {{#content "styles"}}
+        <link rel="stylesheet" href="/stylesheets/gameDetail.css">
+    {{/content}}
+    {{#content "pageTitle"}}{{game_name}}{{/content}}
+    {{#content "mainContent"}}
+        <section id="main_section">
+            <div id="game_cover">
+                <div id="play_button"><a href="{{game_url}}" target="_blank" rel="noopener noreferrer">Play</a></div>
+                <img src="/images/games/covers/{{cover_image}}" alt="Game cover">
+            </div>
+            <h1>{{game_name}}</h1>
+            <h3>By: {{names}} {{lastnames}}</h3>
+            <p style="white-space: pre-line">{{description}}</p>
+        </section>
+    {{/content}}
+{{/extend}}

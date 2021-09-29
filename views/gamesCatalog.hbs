@@ -1,0 +1,43 @@
+{{#extend "baseLayout"}}
+    {{#content "styles"}}
+        <link rel="stylesheet" href="/stylesheets/gamesCatalog.css">
+        <link rel="stylesheet" href="/stylesheets/components/gameCard.css">
+    {{/content}}
+    {{#content "pageTitle"}}Games catalog{{/content}}
+    {{#content "mainContent"}}
+        <section id="main_section">
+            <h1>{{filter}} games</h1>
+            <section id="games_catalog">
+                <section id="filter_section">
+                    <form id="filter_form" action="/year" method="get">
+                        <h3>Filter by release year</h3>
+
+                        <div class="radio_option">
+                            <input type="radio" id="all_radio" name="publishing_year" value="all" checked>
+                            <label for="all_radio">All</label>
+                        </div>
+                        <div class="radio_option">
+                            <input type="radio" id="2021_radio" name="publishing_year" value="2021">
+                            <label for="2021_radio">Published in 2021</label>
+                        </div>
+                        <div class="radio_option">
+                            <input type="radio" id="2020_radio" name="publishing_year" value="2020">
+                            <label for="2020_radio">Published in 2020</label>
+                        </div>
+                        <div class="radio_option">
+                            <input type="radio" id="2019_radio" name="publishing_year" value="2019">
+                            <label for="2019_radio">Published in 2019</label>
+                        </div>
+
+                        <input type="submit" value="Filter">
+                    </form>
+                </section>
+                <section id="games_list">
+                    {{#each games}}
+                        {{> gameCard }}
+                    {{/each}}
+                </section>
+            </section>
+        </section>
+    {{/content}}
+{{/extend}}

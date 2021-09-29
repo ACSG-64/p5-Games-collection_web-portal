@@ -1,0 +1,47 @@
+{{#extend "baseLayout"}}
+    {{#content "styles"}}
+        <link rel="stylesheet" href="/stylesheets/form.css">
+    {{/content}}
+    {{#content "pageTitle"}}Your game{{/content}}
+    {{#content "mainContent"}}
+        <section id="main_section">
+            <form id="register" action="/profile/game-publication" method="post" enctype="multipart/form-data"
+                  class="wider">
+                <h2>Your game</h2>
+                {{#if game_id}}
+                    <p>Your game is currently published <a href="/game/{{game_id}}">here</a>.</p>
+                {{/if}}
+                <hr style="margin-bottom: 8px">
+                <label for="gameTitle">Game title:</label><br>
+                <input type="text" id="gameTitle" name="gameTitle" placeholder="The amazing character"
+                       minlength="3"
+                       maxlength="50"
+                       value="{{game_name}}" required><br>
+
+                <label for="gameDescription">Description:</label><br>
+                <textarea name="gameDescription" id="gameDescription"
+                          placeholder="The story is... The controls of my game are..."
+                          maxlength="350">{{description}}</textarea><br>
+
+                <label for="gameUrl">URL to your game:</label><br>
+                <input type="url" id="gameUrl" name="gameUrl" placeholder="https://my-game.johndoe24.repl.co"
+                       value="{{game_url}}" required><br>
+
+                <label for="releaseYear">Release year:</label><br>
+                <select name="releaseYear" id="releaseYear" required>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                </select>
+
+                <label for="coverImage">Game screenshot (only .png or .jpg):</label><br>
+                <input type="file" id="coverImage" name="gameScreenshot" accept="image/jpeg" required/>
+
+                <input type="submit" value="Publish">
+            </form>
+        </section>
+    {{/content}}
+    {{#content "scripts"}}
+        <script src="/javascripts/formValidator.js"></script>
+    {{/content}}
+{{/extend}}

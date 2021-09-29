@@ -1,0 +1,40 @@
+.game_card {
+    --border_radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 300px;
+    height: 350px;
+    margin: 10px;
+    padding-bottom: 1%;
+
+    font-size: 1rem;
+
+    background-color: rgb(35,37,43);
+    border-radius: var(--border_radius);
+
+    transition: 0.3s transform;
+}
+.game_card:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+.game_card > .game_thumbnail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 60%;
+
+    border-radius: var(--border_radius) var(--border_radius) 0 0;
+
+    overflow: hidden;
+}
+.game_card > .game_thumbnail > img{
+    object-fit: cover;
+    height: 100%;
+}
