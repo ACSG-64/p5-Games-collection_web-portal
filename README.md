@@ -10,7 +10,7 @@ Note that if you are going to test with a database you will need to connect a lo
 
 If you want to suggest a new website design, contact the developer directly.
 
-## Technologies
+## Technologies.
 The technologies used in this project are:
 * Server: Node.js with Express.
 * Database: PostgreSQL.
@@ -18,3 +18,6 @@ The technologies used in this project are:
 
 ### Database schema for reference
 ![db_schema](https://live.staticflickr.com/65535/51533269076_47ffc39e52_c.jpg)
+
+## Transparency. 
+The code that runs on the server is also open source and is exactly the same that you find in this repository. To see the code on the server, please go here: https://replit.com/@ACSG/p5-Games
