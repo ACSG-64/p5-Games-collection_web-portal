@@ -14,7 +14,7 @@ If you want to suggest a new website design, contact the developer directly.
 The technologies used in this project are:
 * Server: Node.js with Express.
 * Database: PostgreSQL.
-* View engine: Handlebars with HBS.
+* View engine: Handlebars with [HBS](https://www.npmjs.com/package/hbs 'hbs package').
 
 ### Database schema for reference
 ![db_schema](https://live.staticflickr.com/65535/51533269076_47ffc39e52_c.jpg)
