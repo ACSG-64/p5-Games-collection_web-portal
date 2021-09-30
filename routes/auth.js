@@ -52,7 +52,6 @@ router.post('/register', [
         .isEmail().withMessage(errorMessages.email)
         .contains('@student.london.ac.uk').withMessage(errorMessages.email)
 ], async function (req, res, next) {
-    console.log(req.body)
     const assertions = validationResult(req);
     if (!assertions.isEmpty()) {
         return res.status(422).render('notification', {isError: true, messages: [...assertions.errors]})
