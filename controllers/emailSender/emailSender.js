@@ -19,9 +19,9 @@ async function sendActivationMail(emailAddress, userRealName, activationCode) {
     const mailOptions = {
         from: 'agonware@gmail.com',
         to: emailAddress,
-        subject: '<p>p5 Games - Activate your account</p>',
+        subject: 'p5 Games - Activate your account',
         html: `<p>Hi ${userRealName}</p>. 
-<p>Thank you for registering on 'p5 Games'. To activate your account, click on this link or copy it into your browser's search bar: <a href="https://p5-games.acsg.repl.co/auth/${activationCode}">https://p5-games.acsg.repl.co/${activationCode}</a></p>
+<p>Thank you for registering on 'p5 Games'. To activate your account, click on this link or copy it into your browser's search bar: <a href="https://p5-games.acsg.repl.co/auth/activation/${activationCode}">https://p5-games.acsg.repl.co/auth/activation/${activationCode}</a></p>
 <p>If you have not registered on 'p5 Games', please ignore this email.</p>`
     };
     await transporter.sendMail(mailOptions);
