@@ -58,7 +58,7 @@ router.post('/register', [
         .isLength({min: 8, max: 30}).withMessage(errorMessages.password),
     check('uolEmail')
         .isEmail().withMessage(errorMessages.email)
-    .contains('@student.london.ac.uk').withMessage(errorMessages.email)
+        .contains('@student.london.ac.uk').withMessage(errorMessages.email)
 ], async function (req, res, next) {
     const assertions = validationResult(req);
     if (!assertions.isEmpty()) {
