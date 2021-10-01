@@ -1,5 +1,8 @@
-const {getAllGames, getGamesByYear, getGameDetail} = require('../controllers/games/gamesCatalogController')
 const express = require('express');
+const httpCode = require('../utils/httpCodes');
+const {getAllGames, getGamesByYear, getGameDetail} = require('../controllers/games/gamesCatalogController')
+
+
 const router = express.Router();
 
 /* GET home page. */
@@ -14,7 +17,7 @@ router.get('/year', async function (req, res, next) {
         const data = await getGamesByYear(year);
         res.render('gamesCatalog', {games: data, filter: req.query.publishing_year});
     } else {
-        res.redirect('/');
+        res.status(httpCode.NOT_FOUND).redirect('/');
     }
 });
 
@@ -23,7 +26,7 @@ router.get('/game/:gameId', async function (req, res, next) {
         const data = await getGameDetail(req.params.gameId);
         res.render('gameDetail', data);
     } catch (e) {
-        res.redirect('/')
+        res.status(httpCode.NOT_FOUND).redirect('/')
     }
 });
 

@@ -1,13 +1,15 @@
 const express = require('express');
-const router = express.Router();
+const httpCode = require('../utils/httpCodes');
 const {check, validationResult} = require('express-validator');
 const {errorMessages} = require('../utils/errors')
 const {registerUser, loginUser, accountActivation, authenticateUser} = require('../controllers/auth/authController');
 
+const router = express.Router();
+
 router.use(async function (req, res, next) {
     try {
         await authenticateUser(req.cookies.Session);
-        res.redirect('../profile/game');
+        res.status(httpCode.CONTINUE).redirect('../profile/game');
     } catch (e) {
         next()
     }
@@ -26,11 +28,17 @@ router.post('/login', [
 ], async function (req, res, next) {
     const assertions = validationResult(req);
     if (!assertions.isEmpty()) {
-        return res.status(422).render('notification', {isError: true, messages: [...assertions.errors]})
+        return res.status(httpCode.UNPROCESSABLE_ENTITY).render('notification', {
+            isError: true,
+            messages: [...assertions.errors]
+        })
     }
     try {
         const jwt = await loginUser(req.body);
-        res.cookie('Session', jwt, {httpOnly: true, secure: true}).redirect('../profile/game');
+        res.cookie('Session', jwt, {
+            httpOnly: true,
+            secure: true
+        }).status(httpCode.CONTINUE).redirect('../profile/game');
     } catch (e) {
         res.status(e.statusCode).render('notification', {isError: true, messages: [e]})
     }
@@ -50,15 +58,18 @@ router.post('/register', [
         .isLength({min: 8, max: 30}).withMessage(errorMessages.password),
     check('uolEmail')
         .isEmail().withMessage(errorMessages.email)
-        .contains('@student.london.ac.uk').withMessage(errorMessages.email)
+    /*.contains('@student.london.ac.uk').withMessage(errorMessages.email)*/
 ], async function (req, res, next) {
     const assertions = validationResult(req);
     if (!assertions.isEmpty()) {
-        return res.status(422).render('notification', {isError: true, messages: [...assertions.errors]})
+        return res.status(httpCode.UNPROCESSABLE_ENTITY).render('notification', {
+            isError: true,
+            messages: [...assertions.errors]
+        })
     }
     try {
         const message = await registerUser(req.body);
-        res.render('notification', {isError: false, messages: [{msg: message}]});
+        res.status(httpCode.CREATED).render('notification', {isError: false, messages: [{msg: message}]});
     } catch (e) {
         res.status(e.statusCode).render('notification', {isError: true, messages: [e]});
     }

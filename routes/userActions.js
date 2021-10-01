@@ -1,5 +1,6 @@
 const express = require('express');
 const multer = require('multer');
+const httpCode = require('../utils/httpCodes');
 const {check, validationResult} = require('express-validator');
 const {errorMessages} = require('../utils/errors')
 const {gameUploader, gameDetailsForm} = require('../controllers/profile/profileController');
@@ -15,7 +16,7 @@ router.use(async function (req, res, next) {
         res.locals.userId = await authenticateUser(req.cookies.Session);
         next()
     } catch (e) {
-        res.redirect('../auth');
+        res.status(httpCode.UNAUTHORIZED).redirect('../auth');
     }
 })
 
@@ -41,12 +42,15 @@ router.post('/game-publication', upload.single('gameScreenshot'), [
 ], async function (req, res, next) {
     const assertions = validationResult(req);
     if (!assertions.isEmpty()) {
-        return res.status(422).render('notification', {isError: true, messages: [...assertions.errors]})
+        return res.status(httpCode.UNPROCESSABLE_ENTITY).render('notification', {
+            isError: true,
+            messages: [...assertions.errors]
+        })
     }
 
     try {
         const gameId = await gameUploader(req.body, res.locals.userId, req.file);
-        res.redirect('../game/' + gameId)
+        res.status(httpCode.CREATED).redirect('../game/' + gameId)
     } catch (e) {
         res.status(e.statusCode).render('notification', {isError: true, messages: [e]})
     }

@@ -1,6 +1,7 @@
 const argon2 = require('@phc/argon2');
 const jwt = require('jsonwebtoken');
 const errorsUtil = require('../../../utils/errors');
+const httpCode = require('../../../utils/httpCodes');
 const {retrieveUser} = require('../../../models/user/userModel');
 
 async function loginUser(reqBody) {
@@ -8,6 +9,7 @@ async function loginUser(reqBody) {
     let results = await retrieveUser(reqBody.userName);
     if (results === undefined)   {
         const error = errorsUtil.errorFormat();
+        error.statusCode = httpCode.NOT_FOUND;
         error.msg = errorsUtil.errorMessages.invalidCredentials;
         throw(error);
     }
@@ -15,6 +17,7 @@ async function loginUser(reqBody) {
     // Verify if account is active
     if(!results.is_active) {
         const error = errorsUtil.errorFormat();
+        error.statusCode = httpCode.UNAUTHORIZED;
         error.msg = errorsUtil.errorMessages.inactiveAccount;
         throw(error);
     }
@@ -23,9 +26,11 @@ async function loginUser(reqBody) {
     const passwordsMatch = await argon2.verify(results.pswd, reqBody.password);
     if (!passwordsMatch) {
         const error = errorsUtil.errorFormat();
+        error.statusCode = httpCode.UNAUTHORIZED;
         error.msg = errorsUtil.errorMessages.invalidCredentials;
         throw(error);
     }
+
     // Create and return the the jwt
     return await jwt.sign({
         userId: results.user_id,

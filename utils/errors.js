@@ -5,6 +5,7 @@ const errorMessages = {
     password: 'Your password must be at least 8 characters long and no longer than 30 characters.',
     email: 'Use your valid student email ending in @student.london.ac.uk',
     existingUser: 'The chosen user name already exists, please try another one.',
+    unsatisfactoryRegistration: 'There were problems when registering. Please try again.',
     imageFormat: 'Incorrect image file. Make sure you are uploading an image in .png or .jpg format.',
     gameName: 'Enter a name for your game in English.',
     publicationDate: 'Enter a valid publication date.',
@@ -12,13 +13,13 @@ const errorMessages = {
     inactiveAccount: 'This account is not active. If this is your account, please activate it through the link that was sent to your email.',
     invalidActivationCode: 'Invalid activation code. This account may have already been activated.',
     invalidCredentials: 'The user name or the password is incorrect',
-    unknownError: 'We have an error, please try again'
+    unknownError: 'We have an error, please try again. If the problem persists, try again later.'
 }
 
 function errorFormat() {
     return Object.seal({
         isError: true,
-        statusCode: 422,
+        statusCode: 500,
         msg: errorMessages.unknownError
     })
 }
