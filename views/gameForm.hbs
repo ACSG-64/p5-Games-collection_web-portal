@@ -9,7 +9,7 @@
                   class="wider">
                 <h2>Your game</h2>
                 {{#if game_id}}
-                    <p>Your game is currently published <a href="/game/{{game_id}}">here</a>.</p>
+                    <p>Your game is currently published <a href="/game/{{game_id}}"><b>here</b></a>.</p>
                 {{/if}}
                 <hr style="margin-bottom: 8px">
                 <label for="gameTitle">Game title:</label><br>
@@ -40,8 +40,5 @@
                 <input type="submit" value="Publish">
             </form>
         </section>
-    {{/content}}
-    {{#content "scripts"}}
-        <script src="/javascripts/formValidator.js"></script>
     {{/content}}
 {{/extend}}
