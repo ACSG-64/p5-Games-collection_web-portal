@@ -3,9 +3,10 @@
         <link rel="stylesheet" href="/stylesheets/gameDetail.css">
     {{/content}}
 
+    {{#content "pageTitle"}}{{game_name}}{{/content}}
+    {{#content "pageDescription"}}{{game_name}} game developed by {{names}} {{lastnames}}{{/content}}
     {{#content "coverSocialImage"}}/images/games/covers/{{cover_image}}.png{{/content}}
 
-    {{#content "pageTitle"}}{{game_name}}{{/content}}
     {{#content "mainContent"}}
         <section id="main_section">
             <div id="game_cover">
