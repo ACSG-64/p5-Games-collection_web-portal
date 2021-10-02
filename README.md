@@ -1,4 +1,4 @@
-# p5-Games collection - web portal
+# p5 Games collection - web portal
 Micro web site to share games made with p5.
 
 ## Contribution guidelines.
@@ -16,12 +16,12 @@ The technologies used in this project are:
 * Database: PostgreSQL.
 * View engine: Handlebars with [HBS](https://www.npmjs.com/package/hbs 'hbs package').
 
-### Database 
+### Database.
 If you are going to contribute to the project and want to do tests involving the database, you will have to create one locally.
-#### Schema for reference
+#### Schema for reference.
 ![db_schema](https://live.staticflickr.com/65535/51533269076_47ffc39e52_c.jpg)
 
-#### Create the *users* table
+#### Create the *users* table.
 ```
 create table users
 (
@@ -35,7 +35,7 @@ create table users
     is_active boolean default false not null
 );
 ```
-#### Create the *activation_codes* table
+#### Create the *activation_codes* table.
 ```
 create table activation_codes
 (
@@ -46,7 +46,7 @@ create table activation_codes
     code    varchar(100) not null
 );
 ```
-#### Create the *games* table
+#### Create the *games* table.
 ```
 create table games
 (
@@ -66,5 +66,5 @@ create table games
 ```
 
 ## Transparency. 
-The code that runs on the server is also open source and is exactly the same that you find in this repository. To see the code on the server, please go here: https://replit.com/@ACSG/p5-Games
+The code that runs on the server is also open source and is the same that you find in this repository. To see the code on the server, please go here: https://replit.com/@ACSG/p5-Games
 
