@@ -1,8 +1,6 @@
 # p5 Games collection - web portal
 Micro web site to share games made with p5.
 
-If you want to suggest a new website design, contact the developer directly.
-
 ## Technologies.
 The technologies used in this project are:
 * Server: Node.js with Express.
@@ -57,7 +55,3 @@ create table games
     release_year integer      not null
 );
 ```
-
-## Transparency. 
-The code that runs on the server is also open source and is the same that you find in this repository. To see the code on the server, please go here: https://replit.com/@ACSG/p5-Games
-
